@@ -6,24 +6,24 @@ var extend= function(to, from) {
 
 var stackMethods = {
   push: function(value){
-    this.storage[this.size] = value;
-    this.size++;
+    this.storage[this.sizeOfStorage] = value;
+    this.sizeOfStorage++;
   },
   pop: function(){
-    this.size && this.size--;
-    var result = this.storage[this.size];
-    delete this.storage[this.size];
+    this.sizeOfStorage && this.sizeOfStorage--;
+    var result = this.storage[this.sizeOfStorage];
+    delete this.storage[this.sizeOfStorage];
     return result;
   },
   size: function(){
-    return this.size;
+    return this.sizeOfStorage;
   },
 };
 
 var makeStack = function() {
   var obj = {};
   obj.storage = {};
-  obj.size = 0;
+  obj.sizeOfStorage = 0;
   extend(obj, stackMethods);
   return obj;
 
