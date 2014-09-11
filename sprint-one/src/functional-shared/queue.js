@@ -4,6 +4,17 @@ var makeQueue = function(){
 };
 
 var queueMethods = {};
+queueMethods.enqueue = enqueue;
+queueMethods.dequeue = dequeue;
+queueMethods.sizee = sizee;
+
+var extend = function(to, from) {
+  for (var key in from) {
+    to[key] = from[key];
+  }
+};
+
+
 
 
 
