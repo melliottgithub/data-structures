@@ -16,7 +16,8 @@ var stackMethods = {
 
 
 var makeStack = function() {
-  var obj = Object.create(stackMethods);
+  var obj = Object.create(stackMethod
+    );
   obj.storage = {};
   obj.sizeOfStorage = 0;
   return obj;
