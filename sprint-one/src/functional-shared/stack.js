@@ -17,7 +17,7 @@ var stackMethods = {
   },
   size: function(){
     return this.sizeOfStorage;
-  },
+  }
 };
 
 var makeStack = function() {
