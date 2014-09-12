@@ -14,16 +14,22 @@ treeMethods.addChild = function(value){
 
 treeMethods.contains = function(target){
 
-  if (this.value === target) {
-    return true;
-  } else {
-    for (var i = 0; i < this.children.length; i++){
-      if(this.contains(this.children[i])) {
-        return this.contains(this.children[i]);
+  var result = false;
+
+  var findChild = function(node) {
+    if (node.value === target) {
+      result = true;
+    }
+    if (node.children.length > 0) {
+      for (var i = 0; i < node.children.length; i++){
+        findChild(node.children[i]);
       }
     }
-  }
-  return false;
+  };
+
+  findChild(this);
+
+  return result;
 };
 
 
