@@ -30,10 +30,42 @@ BinarySearchTreeMethods.insert = function(value){
 };
 
 BinarySearchTreeMethods.contains = function(target){
+// debugger;
+  var findValue = function(node){
+    if (target > node.value){
+      if (!node.right){
+        return false;
+      } else {
+        return findValue(node.right);
+      }
+    } else if (target < node.value){
+      if (!node.left){
+        return false;
+      } else{
+        return findValue(node.left);
+      }
+    } else {
+       return true;
+    }
+  };
 
+  return findValue(this);
 };
 
 BinarySearchTreeMethods.depthFirstLog = function(callback){
+
+    var iterator = function(node){
+    callback(node.value);
+
+      if (node.right){
+        iterator(node.right);
+      }
+      if (node.left){
+        iterator(node.left);
+      }
+  };
+
+  iterator(this);
 
 };
 
