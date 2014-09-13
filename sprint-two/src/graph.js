@@ -1,7 +1,11 @@
 var Graph = function(){
+	var storage = {};
+
 };
 
 Graph.prototype.addNode = function(newNode, toNode){
+
+
 };
 
 Graph.prototype.contains = function(node){
