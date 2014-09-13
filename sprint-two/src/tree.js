@@ -7,6 +7,20 @@ var extend= function(to, from) {
 
 var treeMethods = {};
 
+treeMethods.traverse = function(iterator){
+
+  var findNode = function (node){
+    if (node.children.length > 0) {
+      for (var i = 0; i < node.children.length; i++){
+        iterator(node.children[i].value);
+        findNode(node.children[i]);
+      }
+    }
+  };
+  findNode(this);
+
+};
+
 treeMethods.addChild = function(value){
   this.children.push(makeTree(value));
 
@@ -14,22 +28,30 @@ treeMethods.addChild = function(value){
 
 treeMethods.contains = function(target){
 
-  var result = false;
+    var result = false;
 
-  var findChild = function(node) {
-    if (node.value === target) {
-      result = true;
-    }
-    if (node.children.length > 0) {
-      for (var i = 0; i < node.children.length; i++){
-        findChild(node.children[i]);
+    this.traverse(function(item){
+      if (item === target) {
+        result = true;
       }
-    }
-  };
+    });
 
-  findChild(this);
 
-  return result;
+  // ORIGINAL METHOD
+  // var findChild = function(node) {
+  //   if (node.children.length > 0) {
+  //     for (var i = 0; i < node.children.length; i++){
+  //       if (node.children[i].value === target) {
+  //         result = true;
+  //       }
+  //       findChild(node.children[i]);
+  //     }
+  //   }
+  // };
+
+  // findChild(this);
+
+    return result;
 };
 
 
