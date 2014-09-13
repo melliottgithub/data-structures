@@ -30,26 +30,19 @@ BinarySearchTreeMethods.insert = function(value){
 };
 
 BinarySearchTreeMethods.contains = function(target){
-// debugger;
-  var findValue = function(node){
-    if (target > node.value){
-      if (!node.right){
-        return false;
-      } else {
-        return findValue(node.right);
-      }
-    } else if (target < node.value){
-      if (!node.left){
-        return false;
-      } else{
-        return findValue(node.left);
-      }
-    } else {
-       return true;
-    }
-  };
 
-  return findValue(this);
+var direction = target < this.value ? 'left' : 'right';
+
+if (this.value === target) {
+  return true
+} else{
+  if (this[direction]){
+    return this[direction].contains(target);
+  }
+}
+
+return false;
+
 };
 
 BinarySearchTreeMethods.depthFirstLog = function(callback){
