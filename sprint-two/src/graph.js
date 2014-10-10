@@ -1,5 +1,4 @@
 var Graph = function(){
-<<<<<<< HEAD
 	var storage = {};
 
 };
@@ -7,7 +6,6 @@ var Graph = function(){
 Graph.prototype.addNode = function(newNode, toNode){
 
 
-=======
   this.storage = {};
   this.length = 0;
 };
@@ -41,7 +39,7 @@ Graph.prototype.addNode = function(newNode, toNode){
     this.addEdge(node[0], oneNode);
   }
   this.length += 1;
->>>>>>> origin/master
+
 };
 
 Graph.prototype.contains = function(node){
