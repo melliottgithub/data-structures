@@ -25,7 +25,7 @@ BinarySearchTreeMethods.direction = function(target, value){
 BinarySearchTreeMethods.insert = function(value, node){
   var node = node || this;
   var direction = this.direction(value, node.value);
-  if (!node[direction]){
+  if ( !node[direction] ){
     node[direction] = makeBinarySearchTree(value);
   } else {
     this.insert(value, node[direction]);
@@ -34,10 +34,10 @@ BinarySearchTreeMethods.insert = function(value, node){
 
 BinarySearchTreeMethods.contains = function(target){
   var direction = this.direction(target, this.value);
-  if (this.value === target) {
+  if ( this.value === target ) {
     return true
   } else{
-    if (this[direction]){
+    if ( this[direction] ){
       return this[direction].contains(target);
     }
   }
@@ -47,10 +47,10 @@ BinarySearchTreeMethods.contains = function(target){
 BinarySearchTreeMethods.depthFirstLog = function(callback, node){
   var node = node || this;
   callback(node.value);
-  if (node.right){
+  if ( node.right ){
     this.depthFirstLog(callback, node.right);
   }
-  if (node.left){
+  if ( node.left ){
     this.depthFirstLog(callback, node.left);
   }
 };

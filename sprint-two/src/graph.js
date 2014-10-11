@@ -1,17 +1,13 @@
 var Graph = function(){
 	var storage = {};
-
 };
 
 Graph.prototype.addNode = function(newNode, toNode){
-
-
   this.storage = {};
   this.length = 0;
 };
 
 Graph.prototype.getEdge = function(fromNode, toNode){
-  // debugger;
   var currentNode = this.storage[fromNode];
   var index = currentNode[1].indexOf(toNode);
   return (index === -1) ? false : true;
@@ -19,7 +15,6 @@ Graph.prototype.getEdge = function(fromNode, toNode){
 
 Graph.prototype.addNode = function(newNode, toNode){
   var node = [];
-  // debugger;
   node[0] = newNode;
   node[1] = [];
   if (this.length === 1) {
@@ -34,7 +29,6 @@ Graph.prototype.addNode = function(newNode, toNode){
   };
 
   if (this.length === 1) {
-  // debugger;
     this.addEdge(oneNode, node[0]);
     this.addEdge(node[0], oneNode);
   }
@@ -72,14 +66,9 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
         result = true;
       }
   }
-  // debugger;
   if (!result) {
     delete this.storage[fromNode];
     delete this.storage[toNode];
   }
-
 };
 
-/*
- * Complexity: What is the time complexity of the above functions?
- */
