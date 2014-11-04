@@ -1,3 +1,5 @@
+//pseudoclassical method of writing a hash table
+
 var HashTable = function(){
   this._limit = 8;
   this._count = 0;
