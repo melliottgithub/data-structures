@@ -1,4 +1,4 @@
-//Prototypal method of set
+//Prototypal method of writing sets
 
 var makeSet = function(){
   var set = Object.create(setPrototype);
