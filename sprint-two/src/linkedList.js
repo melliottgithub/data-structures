@@ -1,3 +1,5 @@
+//functional method of writing linked list
+
 var makeLinkedList = function(){
   var list = {};
   list.head = null;
